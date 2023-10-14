@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O.S ALT PLAN</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resultadoOS {
+            margin-top: 20px;
+        }
+        h2 {
+            margin-top: 10px;
+        }
+        p {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALT PLAN - REMOTO</h1>
+		
+		<div>
+        <a href="file:///D:/Documentos/MZNET/gerador%20os%20js/homepage.html"><button type="button">INÍCIO</button></a>
+		</div>
+        
+        <form id="osForm">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" placeholder="Nome do Cliente">
+            
+            <label for="contato">Contato:</label>
+            <input type="text" id="contato" placeholder="Número de Contato">
+            
+            <label for="planoAtual">Plano Atual:</label>
+            <select id="planoAtual">
+                <option value="100MB/59,90">100MB/59,90</option>
+                <option value="100MB/79,90">100MB/79,90</option>
+                <option value="250MB/69,90">250MB/69,90</option>
+                <option value="400MB/79,90">400MB/79,90</option>
+                <option value="500MB/79,90">500MB/79,90</option>
+                <option value="500MB/99,90">500MB/99,90</option>
+                <option value="1000MB/99,90">1000MB/99,90</option>
+                <option value="1000MB/149,80">1000MB/149,80</option>
+            </select>
+            
+            <label for="planoEscolhido">Plano Escolhido:</label>
+            <select id="planoEscolhido">
+                <option value="100 MEGA/59,90 + MZNET PLAY">100 MEGA/59,90 + MZNET PLAY</option>
+                <option value="250 MEGA/69,90 + MZNET PLAY">250 MEGA/69,90 + MZNET PLAY</option>
+                <option value="500 MEGA/79,90 + MZNET PLAY">500 MEGA/79,90 + MZNET PLAY</option>
+                <option value="1000 MEGA/99,90 + MZNET PLAY + MZNET PLAY PLUS + DEZZER">1000 MEGA/99,90 + MZNET PLAY + MZNET PLAY PLUS + DEZZER</option>
+            </select>
+            
+            <label for="protocolo">Número do Protocolo:</label>
+            <input type="text" id="protocolo" placeholder="Número do Protocolo">
+            
+            <label for="dataGeracao">Data de Geração do Protocolo:</label>
+            <input type="text" id="dataGeracao" placeholder="dd/mm/aaaa">
+            
+            <label for="horaGeracao">Hora de Geração do Protocolo:</label>
+            <input type="time" id="horaGeracao" value="HH:mm">
+            
+            <div id="buttons">
+                <button type="button" id="gerarOS">GERAR O.S</button>
+                <button type="button" id="limparCampos">LIMPAR</button>
+                <button type="button" id="copiarTextoOS">COPIAR</button>
+            </div>
+        </form>
+        
+        <div id="resultadoOS">
+            <h2>Ordem de Serviço Gerada:</h2>
+            <p id="osText"></p>
+        </div>
+    </div>
+    
+    <script>
+document.getElementById("gerarOS").addEventListener("click", function() {
+    var cliente = document.getElementById("cliente").value;
+    var contato = document.getElementById("contato").value;
+    var planoAtual = document.getElementById("planoAtual").value;
+    var planoEscolhido = document.getElementById("planoEscolhido").value;
+    var protocolo = document.getElementById("protocolo").value;
+    var dataGeracao = document.getElementById("dataGeracao").value;
+    var horaGeracao = document.getElementById("horaGeracao").value;
+
+    var osText = " POR LIGAÇÃO (" + contato + ") OFERTEI À " + cliente + " ALTERAÇÃO DO PLANO DE INTERNET:\n" +
+    "PLANO ATUAL: " + planoAtual + " " +
+    "PLANO ESCOLHIDO: " + planoEscolhido + " " +
+    "RENOVA-SE CONTRATO DE PERMANÊNCIA PARA 12 (DOZE) MESES A PARTIR DA ASSINATURA DA O.S E CONTRATO. " +
+    "NÃO É NECESSÁRIA VISITA TÉCNICA, O ROTEADOR INSTALADO ANTERIORMENTE É COMPATÍVEL COM O NOVO PLANO ESCOLHIDO E " + cliente + " DISSE QUE A INSTALAÇÃO DESTE PERMANECE COMO FOI EXECUTADA. " +
+    "EQUIPAMENTO PERMANECERÁ EMPRESTADO EM REGIME DE COMODATO. PROTOCOLO Nº " + protocolo + " EM " + dataGeracao + " ÀS " + horaGeracao + " HRS.";
+
+    document.getElementById("osText").textContent = osText;
+});
+
+document.getElementById("limparCampos").addEventListener("click", function() {
+    // Limpar campos de entrada
+    document.getElementById("cliente").value = "";
+    document.getElementById("contato").value = "";
+    document.getElementById("planoAtual").selectedIndex = 0;
+    document.getElementById("planoEscolhido").selectedIndex = 0;
+    document.getElementById("protocolo").value = "";
+    document.getElementById("dataGeracao").value = "";
+    document.getElementById("horaGeracao").value = "HH:mm";
+
+    // Limpar campo de saída (Ordem de Serviço Gerada)
+    document.getElementById("osText").textContent = "";
+});
+
+document.getElementById("copiarTextoOS").addEventListener("click", function() {
+    var osText = document.getElementById("osText").textContent;
+
+    if (osText) {
+        var textArea = document.createElement("textarea");
+        textArea.value = osText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+    }
+});
+</script>
+</body>
+</html>

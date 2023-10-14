@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O.S ALT PLAN</title>
+    <style>
+        body {
+            font-family: Calibri, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #resultadoOS {
+            margin-top: 20px;
+        }
+        h2 {
+            margin-top: 10px;
+        }
+        p {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ALT PLAN SEM TROCA + VISITA PAGA</h1>
+		
+		<div>
+        <a href="file:///D:/Documentos/MZNET/gerador%20os%20js/homepage.html"><button type="button">INÍCIO</button></a>
+		</div>
+        
+        <form id="osForm">
+            <label for="cliente">Cliente:</label>
+            <input type="text" id="cliente" placeholder="Nome do Cliente">
+            
+            <label for="contato">Contato:</label>
+            <input type="text" id="contato" placeholder="Número de Contato">
+            
+            <label for="planoAtual">Plano Atual:</label>
+            <select id="planoAtual">
+                <option value="100MB/59,90">100MB/59,90</option>
+                <option value="100MB/79,90">100MB/79,90</option>
+                <option value="250MB/69,90">250MB/69,90</option>
+                <option value="400MB/79,90">400MB/79,90</option>
+                <option value="500MB/79,90">500MB/79,90</option>
+                <option value="500MB/99,90">500MB/99,90</option>
+                <option value="1000MB/99,90">1000MB/99,90</option>
+                <option value="1000MB/149,80">1000MB/149,80</option>
+            </select>
+            
+            <label for="planoEscolhido">Plano Escolhido:</label>
+            <select id="planoEscolhido">
+                <option value="100 MEGA/59,90 + MZNET PLAY">100 MEGA/59,90 + MZNET PLAY</option>
+                <option value="250 MEGA/69,90 + MZNET PLAY">250 MEGA/69,90 + MZNET PLAY</option>
+                <option value="500 MEGA/79,90 + MZNET PLAY">500 MEGA/79,90 + MZNET PLAY</option>
+                <option value="1000 MEGA/99,90 + MZNET PLAY + MZNET PLAY PLUS + DEZZER">1000 MEGA/99,90 + MZNET PLAY + MZNET PLAY PLUS + DEZZER</option>
+            </select>
+            
+            <label for="formaPag">Forma de pagamento:</label>
+            <select id="formaPag">
+                <option value="PIX">PIX</option>
+                <option value="DINHEIRO">DINHEIRO</option>
+                <option value="CARTAO">CARTAO</option>
+            </select>
+            
+            <label for="dataVisita">Data da Visita Técnica:</label>
+            <input type="text" id="dataVisita" placeholder="dd/mm/aaaa">
+            
+            <label for="horaVisita">Hora:</label>
+            <select id="horaVisita">
+                <option value="08:30">08:30</option>
+                <option value="09:30">09:30</option>
+                <option value="10:30">10:30</option>
+                <option value="11:30">11:30</option>
+                <option value="13:30">13:30</option>
+                <option value="14:30">14:30</option>
+                <option value="15:30">15:30</option>
+                <option value="16:30">16:30</option>
+                <option value="17:30">17:30</option>
+            </select>
+            
+            <div id="buttons">
+                <button type="button" id="gerarOS">GERAR O.S</button>
+                <button type="button" id="limparCampos">LIMPAR</button>
+                <button type="button" id="copiarTextoOS">COPIAR</button>
+            </div>
+        </form>
+        
+        <div id="resultadoOS">
+            <h2>Ordem de Serviço Gerada:</h2>
+            <p id="osText"></p>
+        </div>
+        
+        <script>
+            document.getElementById("gerarOS").addEventListener("click", function() {
+                var cliente = document.getElementById("cliente").value;
+                var contato = document.getElementById("contato").value;
+                var planoAtual = document.getElementById("planoAtual").value;
+                var planoEscolhido = document.getElementById("planoEscolhido").value;
+                var dataVisita = document.getElementById("dataVisita").value;
+                var horaVisita = document.getElementById("horaVisita").value;
+                var formaPag = document.getElementById("formaPag").value;
+    
+                var osText = cliente + " SOLICITOU POR LIGAÇÃO (" + contato + ") ALTERAÇÃO DO PLANO DE INTERNET: " +
+                "PLANO ATUAL: " + planoAtual + " " +
+                "PLANO ESCOLHIDO: " + planoEscolhido + " " +
+                "RENOVA-SE CONTRATO DE PERMANÊNCIA PARA 12 (DOZE) MESES A PARTIR DA ASSINATURA DA O.S E CONTRATO. " +
+                "NÃO É NECESSÁRIA VISITA TÉCNICA, O ROTEADOR INSTALADO ANTERIORMENTE É COMPATÍVEL COM O NOVO PLANO ESCOLHIDO E " + 
+                cliente + " DISSE QUE A INSTALAÇÃO DESTE PERMANECE COMO FOI EXECUTADA. EQUIPAMENTO PERMANECERÁ EMPRESTADO EM REGIME DE COMODATO. PORÉM, DESEJA VISITA TÉCNICA PARA INSTRUÇÕES, AFERIÇÃO DO NOVO PLANO E INSTALAÇÃO DO APLICATIVO. " +
+                "VISITA TÉCNICA COM CUSTO DE R$50.00 REFERENTE AO DESLOCAMENTO E SERÁ PAGO NO ATO EM " + formaPag + ". " +
+                "VISITA AGENDADA PARA " + dataVisita + " ÀS " + horaVisita + "HRS.";
+    
+                document.getElementById("osText").textContent = osText;
+            });
+    
+            document.getElementById("gerarIndicacao").addEventListener("click", function() {
+    var indicacaoText = "TÉCNICO: PLANO JÁ ALTERADO PARA NOVO PLANO ESCOLHIDO, FAZER TESTES ANTES E DEPOIS DA TROCA DO ROTEADOR. PADRONIZAR NOME DAS REDES (\"NOME DO CLIENTE_MZNET\"), SOLICITAR ESCOLHA DA SENHA, CONFERIR NAVEGAÇÃO IPv6, PADRONIZAR PORTA E SENHA DE ACESSO REMOTO, LIBERAR ACESSO EXTERNO PELA WAN; TESTAR ABRANGÊNCIA DA REDE WI-FI E EXPLICAR SOBRE COBERTURA, CONECTAR TODOS DISPOSITIVOS QUE APRESENTAR E REALIZAR TESTES, VERIFICAR E EXPLICAR SOBRE EQUIPAMENTOS QUE FUNCIONARAM MELHOR LIGADOS DIRETAMENTE AO ROTEADOR POR CABOS. COLHER ASSINATURAS (O.S E CONTRATO), ENTREGAR DOCUMENTAÇÃO (VIAS DO CLIENTE), RECOLHER CARNÊ ANTIGO.";
+    document.getElementById("indicacaoText").textContent = indicacaoText;
+});
+
+document.getElementById("limparCampos").addEventListener("click", function() {
+    // Limpar campos de entrada
+    document.getElementById("cliente").value = "";
+    document.getElementById("contato").value = "";
+    document.getElementById("planoAtual").value = "";
+    document.getElementById("planoEscolhido").value = "";
+    document.getElementById("dataVisita").value = "";
+    document.getElementById("horaVisita").value = "";
+    document.getElementById("formaPag").value = "";
+
+    // Limpar campo de saída (Ordem de Serviço Gerada)
+    document.getElementById("osText").textContent = "";
+
+    // Limpar campo de saída (Indicação Técnica)
+    document.getElementById("indicacaoText").textContent = "";
+});
+
+document.getElementById("copiarTextoOS").addEventListener("click", function() {
+    var osText = document.getElementById("osText").textContent;
+
+    if (osText) {
+        var textArea = document.createElement("textarea");
+        textArea.value = osText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+    }
+});
+
+document.getElementById("copiarTextoIndicacao").addEventListener("click", function() {
+    var indicacaoText = document.getElementById("indicacaoText").textContent;
+
+    if (indicacaoText) {
+        var textArea = document.createElement("textarea");
+        textArea.value = indicacaoText;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+    }
+});
+
+
+        // JavaScript code remains unchanged
+    </script>
+</body>
+</html>
